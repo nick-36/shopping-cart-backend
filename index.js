@@ -13,7 +13,10 @@ const stripeRoute = require("./Routes/stripe");
 const cors = require("cors");
 
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+  })
   .then(() => console.log("DB CONNECTED SUCCESSFULLY"))
   .catch((err) => console.log(err));
 
