@@ -21,7 +21,7 @@ mongoose
 
 app.use(
   cors({
-    origin: "https://shopcartclient.netlify.app/",
+    origin: "https://shopcartclient.netlify.app",
     credentials: true,
   })
 );
