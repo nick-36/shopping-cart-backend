@@ -11,6 +11,7 @@ const orderRoute = require("./Routes/order");
 const stripeRoute = require("./Routes/stripe");
 
 const cors = require("cors");
+const corsOptions = require("./Config/CorsOptions");
 
 mongoose
   .connect(process.env.MONGO_URL, {
@@ -19,12 +20,7 @@ mongoose
   .then(() => console.log("DB CONNECTED SUCCESSFULLY"))
   .catch((err) => console.log(err));
 
-app.use(
-  cors({
-    origin: "https://shopcartclient.netlify.app",
-    credentials: true,
-  })
-);
+app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api/auth", authRoute);
